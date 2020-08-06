@@ -1,0 +1,8 @@
+STM32CubeProgrammer := 'E:\Programs\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.cubeprogrammer.win32_1.3.0.202002181050\tools\bin\STM32_Programmer_CLI.exe'
+
+flash: all
+	-@echo 'Download hex/bin to MCU Flash ...'
+#	$(STM32CubeProgrammer) -c port=SWD -d $(wildcard *.hex) -Rst
+	$(STM32CubeProgrammer) -c port=SWD -d $(wildcard *.bin) 0x8000000 -Rst
+ 
+.PHONY: flash
